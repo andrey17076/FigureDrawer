@@ -3,7 +3,7 @@ import java.awt.*;
 public abstract class Figure {
     private Color color;
 
-    public Figure(){
+    public Figure() {
         this.color = Color.black;
     }
 
