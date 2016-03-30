@@ -38,6 +38,8 @@ public class Main extends Application{
 
         buttons.get("Ellipse").setOnMouseClicked(event -> new EllipseDrawTool(drawField).handleDrawing());
         buttons.get("Circle").setOnMouseClicked(event -> new CircleDrawTool(drawField).handleDrawing());
+        buttons.get("Line").setOnMouseClicked(event -> new LineDrawTool(drawField).handleDrawing());
+
 
         //Shape Panel
         VBox shapePanel = new VBox();
