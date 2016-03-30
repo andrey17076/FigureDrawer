@@ -1,6 +1,13 @@
 public class Circle extends Ellipse {
 
-    public Circle(Point center, int radius) {
-        super(center, radius, radius);
+    public double radius;
+
+    public Circle(double x, double y) {
+        super(x, y);
+    }
+
+    public void setRadius(double radius) {
+        this.setHorizontalRadius(radius);
+        this.setVerticalRadius(radius);
     }
 }

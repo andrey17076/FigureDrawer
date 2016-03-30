@@ -1,17 +1,29 @@
-import java.awt.*;
+public class Ellipse extends Shape {
+    private Point center;
+    private double horizontalRadius, verticalRadius;
 
-public class Ellipse extends Figure {
-    protected Point center;
-    protected int hRad, vRad;
+    public Ellipse(double x, double y) {
+        this.setCenter(x, y);
+    }
 
-    public Ellipse(Point center, int horizontalRadius, int verticalRadius) {
-        this.center = new Point(center.x, center.y);
-        hRad = horizontalRadius;
-        vRad = verticalRadius;
+    public void setCenter(double x, double y) {
+        center = new Point(x, y);
+    }
+
+    public Point getCenter() {
+        return center;
+    }
+
+    public void setHorizontalRadius(double horizontalRadius) {
+        this.horizontalRadius = horizontalRadius;
+    }
+
+    public void setVerticalRadius(double verticalRadius) {
+        this.verticalRadius = verticalRadius;
     }
 
     @Override
-    public void draw(Graphics g) {
-        g.drawOval(center.x - hRad, center.y - vRad, 2*vRad, 2*hRad);
+    public javafx.scene.shape.Shape getRawShape() {
+        return new javafx.scene.shape.Ellipse(center.x, center.y, horizontalRadius, verticalRadius);
     }
 }
