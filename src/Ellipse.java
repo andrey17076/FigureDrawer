@@ -1,12 +1,11 @@
+import javafx.scene.paint.Color;
+
 public class Ellipse extends Shape {
     private Point center;
     private double horizontalRadius, verticalRadius;
 
-    public Ellipse(double x, double y) {
-        this.setCenter(x, y);
-    }
-
-    public void setCenter(double x, double y) {
+    public Ellipse(double x, double y, Color color) {
+        super(color);
         center = new Point(x, y);
     }
 
@@ -24,6 +23,9 @@ public class Ellipse extends Shape {
 
     @Override
     public javafx.scene.shape.Shape getRawShape() {
-        return new javafx.scene.shape.Ellipse(center.x, center.y, horizontalRadius, verticalRadius);
+        javafx.scene.shape.Shape rawShape =
+                new javafx.scene.shape.Ellipse(center.x, center.y, horizontalRadius, verticalRadius);
+        rawShape.setFill(this.getColor());
+        return rawShape;
     }
 }

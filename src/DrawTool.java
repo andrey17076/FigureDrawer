@@ -5,7 +5,7 @@ public abstract class DrawTool {
         this.drawField = drawField;
     }
 
-    public DrawField getDrawField(){
+    public DrawField getDrawField() {
         return drawField;
     }
 

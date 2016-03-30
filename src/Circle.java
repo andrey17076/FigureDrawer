@@ -1,9 +1,8 @@
+import javafx.scene.paint.Color;
+
 public class Circle extends Ellipse {
-
-    public double radius;
-
-    public Circle(double x, double y) {
-        super(x, y);
+    public Circle(double x, double y, Color color) {
+        super(x, y, color);
     }
 
     public void setRadius(double radius) {

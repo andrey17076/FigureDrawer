@@ -7,7 +7,7 @@ public class CircleDrawTool extends DrawTool{
     @Override
     public void handleDrawing() {
         this.getDrawField().getPane().setOnMousePressed(event -> {
-            Circle circle = new Circle(event.getX(), event.getY());
+            Circle circle = new Circle(event.getX(), event.getY(), this.getDrawField().getColor());
             this.getDrawField().add(circle);
             this.getDrawField().getPane().setOnMouseDragged(event1 -> {
                 Point center = circle.getCenter();

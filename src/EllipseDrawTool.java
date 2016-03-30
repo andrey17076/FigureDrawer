@@ -7,7 +7,7 @@ public class EllipseDrawTool extends DrawTool {
     @Override
     public void handleDrawing() {
         this.getDrawField().getPane().setOnMousePressed(event -> {
-            Ellipse ellipse= new Ellipse(event.getX(), event.getY());
+            Ellipse ellipse= new Ellipse(event.getX(), event.getY(), this.getDrawField().getColor());
             this.getDrawField().add(ellipse);
             this.getDrawField().getPane().setOnMouseDragged(event1 -> {
                 Point center = ellipse.getCenter();
