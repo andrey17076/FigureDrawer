@@ -1,26 +1,38 @@
-import java.awt.*;
+import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
-public class Polygon extends Figure{
-    protected ArrayList<Point> Points;
+public class Polygon extends Shape {
+    protected ArrayList<Point> points = new ArrayList<>();
 
-    public Polygon() {
-        Points = new ArrayList<>();
+    public Polygon(double baseX, double baseY, Color color) {
+        super(color);
+        this.addPoint(baseX, baseY);
     }
 
-    public void addPoint(Point point) {
-        Points.add(point);
+    public void addPoint(double x, double y) {
+        points.add(new Point(x, y));
+    }
+
+    public void setLastPoint(double x, double y) {
+        points.remove(points.size() - 1);
+        addPoint(x, y);
     }
 
     @Override
-    public void draw(Graphics g) {
-        int[] vertexX = new int[Points.size()];
-        int[] vertexY = new int[Points.size()];
-
-        for (int i = 0; i < Points.size(); i++) {
-            vertexX[i] = Points.get(i).x;
-            vertexY[i] = Points.get(i).y;
+    public javafx.scene.shape.Shape getRawShape() {
+        double[] coordinates = new double[points.size() * 2];
+        for (int i = 0; i < points.size(); i++) {
+            coordinates[2 * i] = points.get(i).x;
+            coordinates[2 * i + 1] = points.get(i).y;
         }
-        g.drawPolygon(vertexX, vertexY, Points.size());
+
+        javafx.scene.shape.Shape rawShape =
+                new javafx.scene.shape.Polygon(coordinates);
+
+        rawShape.setFill(this.getColor());
+        rawShape.setStroke(Color.BLACK);
+        rawShape.setStrokeWidth(2);
+
+        return rawShape;
     }
 }

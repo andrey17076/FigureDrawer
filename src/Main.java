@@ -12,18 +12,11 @@ import java.util.Hashtable;
 import java.util.List;
 
 public class Main extends Application{
-//        Line line = new Line(new Point(50, 50), new Point(100, 100));
-//
 //        Polygon polygon = new Polygon();
 //        polygon.addPoint(new Point(500, 250));
 //        polygon.addPoint(new Point(550, 200));
 //        polygon.addPoint(new Point(600, 250));
-//        polygon.addPoint(new Point(600, 300));
-//        polygon.addPoint(new Point(550, 300));
-//        polygon.setColor(Color.green);
-//
 //        Rectangle rectangle = new Rectangle(new Point(10, 400), 50, 100);
-//
 //        Square square = new Square(new Point(300, 400), 100);
 
     @Override
@@ -39,7 +32,7 @@ public class Main extends Application{
         buttons.get("Ellipse").setOnMouseClicked(event -> new EllipseDrawTool(drawField).handleDrawing());
         buttons.get("Circle").setOnMouseClicked(event -> new CircleDrawTool(drawField).handleDrawing());
         buttons.get("Line").setOnMouseClicked(event -> new LineDrawTool(drawField).handleDrawing());
-
+        buttons.get("Polygon").setOnMouseClicked(event -> new PolygonDrawTool(drawField).handleDrawing());
 
         //Shape Panel
         VBox shapePanel = new VBox();
