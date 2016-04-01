@@ -38,6 +38,7 @@ public class DrawField {
     }
 
     public void removeLast() {
-        pane.getChildren().remove(--shapesCount);
+        if (shapesCount > 0)
+            pane.getChildren().remove(--shapesCount);
     }
 }

@@ -19,7 +19,7 @@ public class Main extends Application{
         //DrawField
         DrawField drawField = new DrawField();
 
-        //Buttons
+        //Shape Buttons
         Hashtable<String, Button> buttons = new Hashtable<>();
         List<String> buttonNames = Arrays.asList("Ellipse", "Circle", "Line", "Polygon", "Rectangle", "Square");
         buttonNames.forEach(buttonName -> buttons.put(buttonName, new Button(buttonName)));
@@ -31,12 +31,17 @@ public class Main extends Application{
         buttons.get("Rectangle").setOnMouseClicked(event -> new RectangleDrawTool(drawField).handleDrawing());
         buttons.get("Square").setOnMouseClicked(event -> new SquareDrawTool(drawField).handleDrawing());
 
-        //shapes.Shape Panel
+        //Undo button
+        Button undoButton = new Button("Undo");
+        undoButton.setMinWidth(140);
+        undoButton.setOnMouseClicked(event -> drawField.removeLast());
+
+        //Shape Panel
         VBox shapePanel = new VBox();
         shapePanel.setMaxWidth(140);
         shapePanel.setPadding(new Insets(10));
         shapePanel.setSpacing(10);
-        shapePanel.getChildren().add(drawField.getColorPicker());
+        shapePanel.getChildren().addAll(drawField.getColorPicker(), undoButton, new Separator());
 
         //Put button on shape panel
         buttons.values().forEach(button -> {
@@ -52,8 +57,8 @@ public class Main extends Application{
         //Primary Stage
         Scene scene = new Scene(mainLayout, 800, 600);
         primaryStage.setMinWidth(600);
-        primaryStage.setMinHeight(300);
-        primaryStage.setTitle("DrawField");
+        primaryStage.setMinHeight(350);
+        primaryStage.setTitle("Drawer");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
