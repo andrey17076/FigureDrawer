@@ -1,3 +1,8 @@
+package drawtools;
+
+import shapes.DrawField;
+import shapes.Line;
+
 public class LineDrawTool extends DrawTool {
 
     public LineDrawTool(DrawField drawField) {
@@ -6,10 +11,12 @@ public class LineDrawTool extends DrawTool {
 
     @Override
     public void handleDrawing() {
-        this.getDrawField().getPane().setOnMousePressed(event -> {
-            Line line= new Line(event.getX(), event.getY(), this.getDrawField().getColor());
-            this.getDrawField().add(line);
-            this.getDrawField().getPane().setOnMouseDragged(event1 -> {
+        drawField.getPane().setOnMousePressed(event -> {
+
+            Line line = new Line(event.getX(), event.getY(), drawField.getColor());
+            draw(line);
+
+            drawField.getPane().setOnMouseDragged(event1 -> {
                 line.setEndPoint(event1.getX(), event1.getY());
                 redraw(line);
             });

@@ -1,9 +1,11 @@
+package shapes;
+
 import javafx.scene.paint.Color;
 
 public class Rectangle extends Polygon {
 
-    protected Point basePoint;
-    protected static final int RECTANGLE_POINTS_QUANTITY = 4;
+    Point basePoint;
+    static final int RECTANGLE_POINTS_QUANTITY = 4;
 
     public Rectangle(double baseX, double baseY, Color color) {
         super(baseX, baseY, color);

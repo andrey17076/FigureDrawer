@@ -1,3 +1,4 @@
+import drawtools.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -6,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import shapes.DrawField;
 
 import java.util.Arrays;
 import java.util.Hashtable;
@@ -29,7 +31,7 @@ public class Main extends Application{
         buttons.get("Rectangle").setOnMouseClicked(event -> new RectangleDrawTool(drawField).handleDrawing());
         buttons.get("Square").setOnMouseClicked(event -> new SquareDrawTool(drawField).handleDrawing());
 
-        //Shape Panel
+        //shapes.Shape Panel
         VBox shapePanel = new VBox();
         shapePanel.setMaxWidth(140);
         shapePanel.setPadding(new Insets(10));

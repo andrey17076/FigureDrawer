@@ -1,12 +1,14 @@
+package shapes;
+
 import javafx.scene.paint.Color;
 
 public abstract class Shape {
 
-    protected static final int DEFAULT_STROKE_WIDTH = 2;
+    static final int DEFAULT_STROKE_WIDTH = 2;
 
     private Color color;
 
-    public Shape(Color color) {
+    Shape(Color color) {
         this.color = color;
     }
 

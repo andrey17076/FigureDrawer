@@ -1,3 +1,5 @@
+package shapes;
+
 import javafx.scene.paint.Color;
 
 public class Circle extends Ellipse {

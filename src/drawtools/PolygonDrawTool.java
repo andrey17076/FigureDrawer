@@ -1,4 +1,8 @@
+package drawtools;
+
 import javafx.scene.input.MouseButton;
+import shapes.DrawField;
+import shapes.Polygon;
 
 public class PolygonDrawTool extends DrawTool {
 
@@ -10,12 +14,12 @@ public class PolygonDrawTool extends DrawTool {
 
     @Override
     public void handleDrawing() {
-        this.getDrawField().getPane().setOnMousePressed(event -> {
+        drawField.getPane().setOnMousePressed(event -> {
             if (event.getButton().equals(MouseButton.PRIMARY)) {
-                polygon = new Polygon(event.getX(), event.getY(), this.getDrawField().getColor());
-                this.getDrawField().add(polygon);
+                polygon = new Polygon(event.getX(), event.getY(), drawField.getColor());
+                draw(polygon);
 
-                this.getDrawField().getPane().setOnMouseDragged(event1 -> {
+                drawField.getPane().setOnMouseDragged(event1 -> {
                     polygon.setLastPoint(event1.getX(), event1.getY());
                     redraw(polygon);
                 });

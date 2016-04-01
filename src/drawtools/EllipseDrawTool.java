@@ -1,3 +1,9 @@
+package drawtools;
+
+import shapes.DrawField;
+import shapes.Ellipse;
+import shapes.Point;
+
 public class EllipseDrawTool extends DrawTool {
 
     public EllipseDrawTool(DrawField drawField) {
@@ -6,10 +12,12 @@ public class EllipseDrawTool extends DrawTool {
 
     @Override
     public void handleDrawing() {
-        this.getDrawField().getPane().setOnMousePressed(event -> {
-            Ellipse ellipse= new Ellipse(event.getX(), event.getY(), this.getDrawField().getColor());
-            this.getDrawField().add(ellipse);
-            this.getDrawField().getPane().setOnMouseDragged(event1 -> {
+        drawField.getPane().setOnMousePressed(event -> {
+
+            Ellipse ellipse= new Ellipse(event.getX(), event.getY(), drawField.getColor());
+            draw(ellipse);
+
+            drawField.getPane().setOnMouseDragged(event1 -> {
                 Point center = ellipse.getCenter();
                 ellipse.setHorizontalRadius(Math.abs(center.x - event1.getX()));
                 ellipse.setVerticalRadius(Math.abs(center.y - event1.getY()));

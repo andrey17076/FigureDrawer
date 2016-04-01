@@ -1,8 +1,11 @@
+package shapes;
+
 import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 
 public class Polygon extends Shape {
-    protected ArrayList<Point> points = new ArrayList<>();
+    ArrayList<Point> points = new ArrayList<>();
 
     public Polygon(double baseX, double baseY, Color color) {
         super(color);
@@ -32,7 +35,7 @@ public class Polygon extends Shape {
 
         rawShape.setFill(this.getColor());
         rawShape.setStroke(Color.BLACK);
-        rawShape.setStrokeWidth(DEFAULT_STROKE_WIDTH);
+        rawShape.setStrokeWidth(Shape.DEFAULT_STROKE_WIDTH);
 
         return rawShape;
     }

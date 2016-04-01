@@ -1,3 +1,5 @@
+package shapes;
+
 import javafx.scene.paint.Color;
 
 public class Ellipse extends Shape {
@@ -27,7 +29,7 @@ public class Ellipse extends Shape {
                 new javafx.scene.shape.Ellipse(center.x, center.y, horizontalRadius, verticalRadius);
         rawShape.setFill(this.getColor());
         rawShape.setStroke(Color.BLACK);
-        rawShape.setStrokeWidth(DEFAULT_STROKE_WIDTH);
+        rawShape.setStrokeWidth(Shape.DEFAULT_STROKE_WIDTH);
         return rawShape;
     }
 }
