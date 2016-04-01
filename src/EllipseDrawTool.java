@@ -13,8 +13,7 @@ public class EllipseDrawTool extends DrawTool {
                 Point center = ellipse.getCenter();
                 ellipse.setHorizontalRadius(Math.abs(center.x - event1.getX()));
                 ellipse.setVerticalRadius(Math.abs(center.y - event1.getY()));
-                this.getDrawField().removeLast();
-                this.getDrawField().add(ellipse);
+                redraw(ellipse);
             });
         });
     }

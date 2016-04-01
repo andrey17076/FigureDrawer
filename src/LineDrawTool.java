@@ -11,8 +11,7 @@ public class LineDrawTool extends DrawTool {
             this.getDrawField().add(line);
             this.getDrawField().getPane().setOnMouseDragged(event1 -> {
                 line.setEndPoint(event1.getX(), event1.getY());
-                this.getDrawField().removeLast();
-                this.getDrawField().add(line);
+                redraw(line);
             });
         });
     }

@@ -10,4 +10,9 @@ public abstract class DrawTool {
     }
 
     public abstract void handleDrawing();
+
+    public void redraw(Shape shape) {
+        drawField.removeLast();
+        drawField.add(shape);
+    }
 }

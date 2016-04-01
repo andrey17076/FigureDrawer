@@ -14,8 +14,7 @@ public class CircleDrawTool extends DrawTool{
                 circle.setRadius(Math.sqrt(
                         Math.pow(center.x - event1.getX(), 2) + Math.pow(center.y - event1.getY(), 2))
                 );
-                this.getDrawField().removeLast();
-                this.getDrawField().add(circle);
+                redraw(circle);
             });
         });
     }

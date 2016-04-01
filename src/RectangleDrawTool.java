@@ -10,8 +10,7 @@ public class RectangleDrawTool extends DrawTool{
             this.getDrawField().add(rectangle);
             this.getDrawField().getPane().setOnMouseDragged(event1 -> {
                 rectangle.setOppositePoint(event1.getX(), event1.getY());
-                this.getDrawField().removeLast();
-                this.getDrawField().add(rectangle);
+                redraw(rectangle);
             });
         });
     }
