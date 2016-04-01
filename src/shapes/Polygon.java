@@ -16,10 +16,9 @@ public class Polygon extends Shape {
         points.add(new Point(x, y));
     }
 
-    public void setLastPoint(double x, double y) {
+    public void removeLastPoint() {
         if (!points.isEmpty())
             points.remove(points.size() - 1);
-        addPoint(x, y);
     }
 
     @Override

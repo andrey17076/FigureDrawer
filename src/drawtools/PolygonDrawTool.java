@@ -20,7 +20,8 @@ public class PolygonDrawTool extends DrawTool {
                 draw(polygon);
 
                 drawField.getPane().setOnMouseDragged(event1 -> {
-                    polygon.setLastPoint(event1.getX(), event1.getY());
+                    polygon.removeLastPoint();
+                    polygon.addPoint(event1.getX(), event1.getY());
                     redraw(polygon);
                 });
             }

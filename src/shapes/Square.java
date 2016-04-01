@@ -9,27 +9,15 @@ public class Square extends Rectangle {
     }
 
     public void setOppositePoint(double x, double y) {
-        if (points.size() == RECTANGLE_POINTS_QUANTITY) {
-            points.remove(points.size() - 1);
-            points.remove(points.size() - 1);
-            points.remove(points.size() - 1);
-        }
-        if (Math.abs(x - basePoint.x) < Math.abs(y - basePoint.y)) {
-            if (y > basePoint.y) {
-                y = basePoint.y + Math.abs(x - basePoint.x);
-            } else {
-                y = basePoint.y - Math.abs(x - basePoint.x);
-            }
-        } else {
-            if (x > basePoint.x) {
-                x = basePoint.x + Math.abs(y - basePoint.y);
-            } else {
-                x = basePoint.x - Math.abs(y - basePoint.y);
-            }
-        }
+        resetRectShape();
+        double weight = Math.abs(x - basePoint.x);
+        double height = Math.abs(y - basePoint.y);
 
-        addPoint(basePoint.x, y);
-        addPoint(x, y);
-        addPoint(x, basePoint.y);
+        if (weight < height)
+            y = (y > basePoint.y) ? basePoint.y + weight : basePoint.y - weight;
+        else
+            x = (x > basePoint.x) ? basePoint.x + height : basePoint.x - height;
+
+        setRectShape(x, y);
     }
 }
