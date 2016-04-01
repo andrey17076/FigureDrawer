@@ -1,9 +1,23 @@
+import javafx.scene.paint.Color;
+
 public class Rectangle extends Polygon {
-    public Rectangle(Point basePoint, int width, int height) {
-        addPoint(basePoint);
-        addPoint(new Point(basePoint.x + height, basePoint.y));
-        addPoint(new Point(basePoint.x + height, basePoint.y));
-        addPoint(new Point(basePoint.x + height, basePoint.y + width));
-        addPoint(new Point(basePoint.x, basePoint.y + width));
+
+    protected Point basePoint;
+    protected static final int RECTANGLE_POINTS_QUANTITY = 4;
+
+    public Rectangle(double baseX, double baseY, Color color) {
+        super(baseX, baseY, color);
+        basePoint = new Point(baseX, baseY);
+    }
+
+    public void setOppositePoint(double x, double y) {
+        if (points.size() == RECTANGLE_POINTS_QUANTITY) {
+            points.remove(points.size() - 1);
+            points.remove(points.size() - 1);
+            points.remove(points.size() - 1);
+        }
+        addPoint(basePoint.x, y);
+        addPoint(x, y);
+        addPoint(x, basePoint.y);
     }
 }

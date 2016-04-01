@@ -1,7 +1,6 @@
 import javafx.scene.paint.Color;
 
 public class Line extends Shape {
-    private static final int DEFAULT_LINE_WIDTH = 5;
     private Point basePoint, endPoint;
 
     public Line(double baseX, double baseY, Color color) {
@@ -18,7 +17,7 @@ public class Line extends Shape {
     public javafx.scene.shape.Shape getRawShape() {
         javafx.scene.shape.Shape rawShape =
                 new javafx.scene.shape.Line(basePoint.x, basePoint.y, endPoint.x, endPoint.y);
-        rawShape.setStrokeWidth(DEFAULT_LINE_WIDTH);
+        rawShape.setStrokeWidth(DEFAULT_STROKE_WIDTH);
         rawShape.setStroke(this.getColor());
         return rawShape;
     }

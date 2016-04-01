@@ -14,8 +14,10 @@ public class Polygon extends Shape {
     }
 
     public void setLastPoint(double x, double y) {
-        points.remove(points.size() - 1);
-        addPoint(x, y);
+        if (points.size() > 1) {
+            points.remove(points.size() - 1);
+            addPoint(x, y);
+        }
     }
 
     @Override
@@ -31,7 +33,7 @@ public class Polygon extends Shape {
 
         rawShape.setFill(this.getColor());
         rawShape.setStroke(Color.BLACK);
-        rawShape.setStrokeWidth(2);
+        rawShape.setStrokeWidth(DEFAULT_STROKE_WIDTH);
 
         return rawShape;
     }

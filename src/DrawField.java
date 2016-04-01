@@ -15,7 +15,7 @@ public class DrawField {
         pane.setStyle("-fx-background-color: white");
         pane.setMinWidth(Region.USE_COMPUTED_SIZE);
 
-        colorPicker = new ColorPicker(Color.CORAL);
+        colorPicker = new ColorPicker(Color.YELLOWGREEN);
         colorPicker.setMinWidth(140);
     }
 
